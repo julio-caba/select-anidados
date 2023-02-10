@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Select de prueba</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+        <div class="container pb-2">
+            <h1>Seleccione:</h1>
+            <select>
+                <option value="">Seleccione una opcion</option>
+                <option value="1" name="seleccion" onclick="showDiv()">Si</option>
+                <option value="0" name="seleccion" onclick="showDiv()">No</option>          
+            </select>
+        </div>
+        <div id="dependencia" class="d-none">
+          <div class="container">
+              <input type="text">
+          </div>        
+        </div>    
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Sector al que pertenece</label>
+                <select name="entry.2063734318" id="entry.2063734318" class="form-control" required>
+                    <option disabled selected value>Seleccione una opción...</option>
+                    <option value="Artistas" name="sector" onclick="showSector()">Artistas</option>
+                    <option value="Food-Truck" name="sector" onclick="showSector()">Food Truck</option>
+                    <option value="Emprendedores" name="sector" onclick="showSector()">Emprendedores</option>
+                    <option value="Artesanos" name="sector" onclick="showSector()">Artesanos</option>
+                    <option value="Hoteles" name="sector" onclick="showSector()">Hoteles</option>
+                    <option value="Estaciones-de-Servicio" name="sector" onclick="showSector()">Estaciones de Servicio</option>
+                    <option value="Restaurantes" name="sector" onclick="showSector()">Restaurantes</option>
+                </select>
+            </div>
+            <div  id="rubro" class="col-md-6 d-none">
+                <div class="form-group">
+                    <label>Si la respuesta fue emprendedor o artesano, ¿que
+                        rubro?</label>
+                        <input type="text" name="entry.531915248" id="entry.531915248" placeholder="Ingrese su rubro"
+                        class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
+      <script>
+        function showDiv() {
+            const selectedValue = document.querySelector('option[name="seleccion"]:checked').value;
+            const addClass = selectedValue === '1' ? 'd-block' : 'd-none';
+            const removeClass = selectedValue === '0' ? 'd-block' : 'd-none';
+            document.getElementById('dependencia').classList.add(addClass);
+            document.getElementById('dependencia').classList.remove(removeClass);
+          }
+         
+      </script>
+      <script>
+        function showSector() {
+            const selectedValue = document.querySelector('option[name="sector"]:checked').value;
+            const addClass = selectedValue === 'Emprendedores | Artesanos' ? 'd-block' : 'd-none';                      
+            const removeClass = selectedValue === 'Artistas | Food-Truck | Hoteles | Estaciones-de-Servicio | Restaurantes' ? 'd-block' : 'd-none';
+            document.getElementById('rubro').classList.add(addClass);
+            document.getElementById('rubro').classList.remove(removeClass);
+          }
+      </script>
+</body>
+</html>
