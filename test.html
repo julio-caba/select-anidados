@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Select de prueba</title>
 </head>
+<!-- https://stackoverflow.com/questions/68995432/how-to-change-displaynone-with-select-an-option [VER] -->
 <body>
     <div class="row">
         <div class="col-md-12">
@@ -66,7 +67,7 @@
         function showSector() {
             const selectedValue = document.querySelector('option[name="sector"]:checked').value;
             const addClass = selectedValue === 'Emprendedores | Artesanos' ? 'd-block' : 'd-none';                      
-            const removeClass = selectedValue === 'Artistas | Food-Truck | Hoteles | Estaciones-de-Servicio | Restaurantes' ? 'd-block' : 'd-none';
+            const removeClass = selectedValue === 'Artistas' ? 'd-block' : 'd-none';
             document.getElementById('rubro').classList.add(addClass);
             document.getElementById('rubro').classList.remove(removeClass);
           }
